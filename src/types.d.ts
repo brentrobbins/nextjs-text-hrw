@@ -1,6 +1,6 @@
 type Post = {
-  userId: number;
   id: number;
   title: string;
+  date: string;
   body: string;
 };

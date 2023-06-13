@@ -1,6 +1,6 @@
 export default async function getAllPosts() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch("https://api.tablebackend.com/v1/rows/1dQucBaX5vjr");
   if (!res.ok) throw new Error(res.statusText);
   const posts = await res.json();
-  return posts;
+  return posts.data;
 }
