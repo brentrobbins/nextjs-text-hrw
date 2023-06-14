@@ -1,3 +1,4 @@
+import Link from "next/link"
 
 export const metadata = {
   title: 'Human Rights Watch',
@@ -11,7 +12,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="container">
+          <main>
+            <h1 className="title">
+              Human Rights Watch | <Link href="/">Latest News</Link>
+            </h1>
+            {children}
+          </main>
+        </div>
+      </body>
     </html>
   )
 }
