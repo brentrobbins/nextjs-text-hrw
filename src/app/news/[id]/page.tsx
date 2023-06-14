@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Post from "@/app/components/Post";
 import getPost from "@/lib/getPost"
+import getAllPosts from "@/lib/getAllPosts";
 
 type Props = {
   params: {
@@ -18,4 +19,13 @@ export default async function page({ params: { id } }: Props) {
       <Post promise={postData} />
     </Suspense>
   )
+}
+
+export async function generateStaticParams() {
+  const postsData: Promise<Post[]> = getAllPosts()
+  const posts = await postsData
+
+  return posts.map((post) => ({
+    id: post.id.toString()
+  }))
 }
