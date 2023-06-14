@@ -1,6 +1,6 @@
 export default async function getAllPosts() {
   const res = await fetch("https://api.tablebackend.com/v1/rows/1dQucBaX5vjr", {
-    next: { revalidate: 10 },
+    next: { revalidate: 60 },
   });
   if (!res.ok) throw new Error(res.statusText);
   const posts = await res.json();
