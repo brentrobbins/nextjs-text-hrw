@@ -10,9 +10,7 @@ type Props = {
 }
 
 export default async function page({ params: { id } }: Props) {
-
   const postData: Promise<Post> = getPost(id)
-
 
   return (
     <Suspense fallback={<h2>Loading...</h2>}>

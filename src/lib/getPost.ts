@@ -5,7 +5,8 @@ export default async function getPost(id: string) {
       next: { revalidate: 60 },
     }
   );
-  if (!res.ok) throw new Error("Failed to fetch post");
+  if (!res.ok) return undefined;
+  // throw new Error("Failed to fetch post");
   const post = await res.json();
   return post;
 }

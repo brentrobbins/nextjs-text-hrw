@@ -1,4 +1,6 @@
+import { notFound } from "next/navigation";
 import { format } from "date-fns";
+
 
 interface PostsProps {
   promise: Promise<Post>
@@ -6,6 +8,10 @@ interface PostsProps {
 
 export default async function Post({ promise }: PostsProps) {
   const post = await promise;
+  if (!post?.id) {
+    return notFound()
+  }
+
 
   return (
     <div>
